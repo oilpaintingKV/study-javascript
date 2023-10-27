@@ -1,6 +1,8 @@
 # study-javascript
+- JavaScript Study History Repository.
+
 ## js 100
-- js 100제 풀이 진행
+- Solving JavaScript 100 questions.
 
 ## js mastery
-- js 마스터리 공부 진행
+- This is the history of studying while listening to js-mastery lecture.
