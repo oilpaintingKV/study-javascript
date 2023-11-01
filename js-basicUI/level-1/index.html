@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="alert" class="alert-box">Notification <button onclick="document.getElementById('alert').style.display = 'none'">close</button></div>
-    <button onclick="document.getElementById('alert').style.display = 'block';">
+    <div id="alert" class="alert-box">Notification <button onclick="closeAlert()">close</button></div>
+    <button onclick="openAlert()">
       button
     </button>
 
-    <script></script>
+    <script>
+      function openAlert() {
+        document.getElementById('alert').style.display = 'block';
+      }
+
+      function closeAlert() {
+        document.getElementById('alert').style.display = 'none'
+      }
+    </script>
   </body>
 </html>
