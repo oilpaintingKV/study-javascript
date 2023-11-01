@@ -7,18 +7,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="alert" class="alert-box">Notification <button onclick="closeAlert()">close</button></div>
-    <button onclick="openAlert()">
-      button
-    </button>
+    <div id="alert" class="alert-box"> 
+      <span id="alert-text">Notification</span>
+      <button onclick="handleAlert('none')">close</button></div>
+    <button onclick="handleAlert('block', 'Please enter ID')">button 1</button>
+    <button onclick="handleAlert('block', 'Please enter Password')">button 2</button>
 
     <script>
-      function openAlert() {
-        document.getElementById('alert').style.display = 'block';
-      }
-
-      function closeAlert() {
-        document.getElementById('alert').style.display = 'none'
+      function handleAlert(parameter1, parameter2) {
+        document.getElementById('alert').style.display = parameter1;
+        document.getElementById('alert-text').innerHTML = parameter2
       }
     </script>
   </body>
