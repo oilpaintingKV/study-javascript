@@ -8,15 +8,19 @@
   </head>
   <body>
     <div id="alert" class="alert-box"> 
-      <span id="alert-text">Notification</span>
-      <button onclick="handleAlert('none')">close</button></div>
+      <span class="alert-text">Notification</span>
+      <button id="close">close</button></div>
     <button onclick="handleAlert('block', 'Please enter ID')">button 1</button>
     <button onclick="handleAlert('block', 'Please enter Password')">button 2</button>
 
     <script>
+      document.getElementById('close').addEventListener('click', function(){
+        document.getElementById('alert').style.display = 'none';
+      });
+
       function handleAlert(parameter1, parameter2) {
         document.getElementById('alert').style.display = parameter1;
-        document.getElementById('alert-text').innerHTML = parameter2
+        document.getElementsByClassName('alert-text')[0].innerHTML = parameter2
       }
     </script>
   </body>
