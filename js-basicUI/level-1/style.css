@@ -1,7 +1,7 @@
-.alert-box {
-  background-color: skyblue;
-  padding: 20px;
-  color: white;
-  border-radius: 5px;
+body .list-group {
   display: none;
+}
+
+body .show {
+  display: block;
 }
