@@ -5,3 +5,21 @@ body .list-group {
 body .show {
   display: block;
 }
+
+.black-bg {
+  display: none;
+  position : fixed;
+  z-index : 5;
+  width : 100%;
+  height : 100%;
+  padding: 30px;
+  background : rgba(0,0,0,0.5);
+}
+.black-bg.show-modal{
+  display: block;
+}
+.white-bg {
+  padding: 30px;
+  background: white;
+  border-radius: 5px;
+}
