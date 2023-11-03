@@ -54,6 +54,13 @@
     ></script>
 
     <script>
+      // navbar toggle
+      document
+        .querySelector('.navbar-toggler')
+        .addEventListener('click', function () {
+          document.querySelector('.list-group').classList.toggle('show');
+        });
+
       // modal - js
       document.querySelector('#login').addEventListener('click', function () {
         document.querySelector('.black-bg').classList.add('show-modal');
@@ -89,13 +96,6 @@
         }
       });
 
-      // navbar toggle
-      document
-        .querySelector('.navbar-toggler')
-        .addEventListener('click', function () {
-          document.querySelector('.list-group').classList.toggle('show');
-        });
-
       // if vs else if
       // else if
       // If the preceding conditional statement is correct, the second if statement will not be executed
@@ -111,8 +111,14 @@
         console.log('right! 1');
       }
       if (3 == 3) {
-        conosole.log('right! 2');
+        console.log('right! 2');
       }
+
+      // input
+      // The addEventlistener input detects the value that is directly entered in the input
+      document.getElementById('email').addEventListener('input', function () {
+        console.log('hello');
+      });
     </script>
 
     <script
