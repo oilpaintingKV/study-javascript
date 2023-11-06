@@ -17,10 +17,12 @@ body .show {
   opacity: 0;
   transition: all 1s;
 }
+
 .black-bg.show-modal {
   visibility: visible;
   opacity: 1;
 }
+
 .white-bg {
   padding: 30px;
   background: white;
@@ -29,4 +31,23 @@ body .show {
 
 .main-bg {
   padding: 50px 20px;
+}
+
+/* slide */
+.slide {
+  overflow: hidden;
+}
+
+.slide-container {
+  width: 300vw;
+  transition: all 1s;
+}
+
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+
+.slide-box .image {
+  width: 100%;
 }
