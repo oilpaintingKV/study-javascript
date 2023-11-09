@@ -82,6 +82,10 @@
       eveniet. Dolorem omnis architecto veritatis.
     </div>
 
+    <div class="page_progress">
+      <span class="percent"></span>
+    </div>
+
     <script>
       // level-2
       // setInterval
@@ -168,7 +172,6 @@
         } else {
           navLogo.classList.remove('on');
         }
-        console.log(window.scrollY);
       });
 
       // scroll 2
@@ -187,6 +190,22 @@
           }
         }
         // console.log(scrollAmount, scrollH, boxH, scrollCheck);
+      });
+
+      // scroll 3
+      let percent = document.querySelector('.percent');
+      let htmlTag = document.documentElement;
+      window.addEventListener('scroll', () => {
+        let scrollAmount = htmlTag.scrollTop;
+        let scrollH = htmlTag.scrollHeight;
+        let boxH = htmlTag.clientHeight;
+        let progress = 0;
+        console.log(scrollAmount, scrollH, boxH);
+        console.log(scrollAmount + boxH);
+
+        progress = ((scrollAmount + boxH) / scrollH) * 100;
+
+        percent.style.width = `${progress}%`;
       });
     </script>
 
