@@ -31,7 +31,7 @@
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
+        <span class="navbar-brand">JS Shop</span>
         <span class="badge bg-dark">Dark 🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
@@ -74,6 +74,13 @@
     <button class="btn_slide slide-2">2</button>
     <button class="btn_slide slide-3">3</button>
     <button class="btn_next">next</button>
+
+    <div class="txt_box">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+      obcaecati, possimus officiis dolorum laudantium suscipit blanditiis natus
+      deserunt. Officiis in nostrum aliquid necessitatibus, eaque explicabo
+      eveniet. Dolorem omnis architecto veritatis.
+    </div>
 
     <script>
       // level-2
@@ -152,7 +159,35 @@
         slideContainer.style.transform = `translateX(-${nowPicture}00vw)`;
       });
 
-      // function
+      // scroll
+      window.addEventListener('scroll', () => {
+        let windowScroll = window.scrollY;
+        let navLogo = document.querySelector('.navbar-brand');
+        if (windowScroll > 100) {
+          navLogo.classList.add('on');
+        } else {
+          navLogo.classList.remove('on');
+        }
+        console.log(window.scrollY);
+      });
+
+      // scroll 2
+      // Amount of scroll bar lowered in '.txt_box' (+ '.txt_box' height) == Display alert() window if '.txt_box' has the same actual height
+      let txtBox = document.querySelector('.txt_box');
+      let scrollCheck = 0;
+      txtBox.addEventListener('scroll', () => {
+        let scrollAmount = txtBox.scrollTop; // scroll amount (top) (- box Height)
+        let scrollH = txtBox.scrollHeight; // total scroll amount can scroll
+        let boxH = txtBox.clientHeight; // box height
+
+        if (scrollAmount + boxH > scrollH - 10) {
+          if (scrollCheck == 0) {
+            alert('clear!');
+            scrollCheck = 1;
+          }
+        }
+        // console.log(scrollAmount, scrollH, boxH, scrollCheck);
+      });
     </script>
 
     <script>

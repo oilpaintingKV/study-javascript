@@ -1,3 +1,7 @@
+:root {
+  scroll-behavior: auto;
+}
+
 body .list-group {
   display: none;
 }
@@ -30,7 +34,23 @@ body .show {
 }
 
 .main-bg {
-  padding: 50px 20px;
+  padding: 106px 20px 50px;
+}
+
+/* nav bar */
+body .navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+body .navbar-brand {
+  font-size: 30px;
+  transition: all 0.5s;
+}
+
+body .navbar-brand.on {
+  font-size: 25px;
 }
 
 /* slide */
@@ -50,4 +70,12 @@ body .show {
 
 .slide-box .image {
   width: 100%;
+}
+
+/* box */
+.txt_box {
+  width: 200px;
+  height: 100px;
+  margin-top: 100px;
+  overflow-y: scroll;
 }
