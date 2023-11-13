@@ -207,6 +207,26 @@
 
         percent.style.width = `${progress}%`;
       });
+
+      // modal
+      document
+        .querySelector('.black-bg')
+        .addEventListener('click', function (e) {
+          /*
+          e.target; // what the user actually pressed
+          console.log(e.target);
+
+          e.currentTarget; // == this;
+          console.log(e.currentTarget); // Where the Event Listener is located
+
+          e.preventDefault(); // It blocks the basic action of the event
+          e.stopPropagation(); // It prevents event bubbling to the higher element.
+          */
+
+          if (e.target == document.querySelector('.black-bg')) {
+            document.querySelector('.black-bg').classList.remove('show-modal');
+          }
+        });
     </script>
 
     <script>
