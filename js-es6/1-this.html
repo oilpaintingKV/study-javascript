@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn">button</button>
+    <script>
+      // 'use strict'; // this 2 - use strict
+
+      // ------------------------------------------------------------------------
+
+      // this 1 (normal)
+      // If you just write it or write it in a normal function, it's "Window"
+      console.log(this); // window
+
+      function func1() {
+        console.log(this); // window (if strict mode -> undefined)
+      }
+
+      func1();
+
+      // ------------------------------------------------------------------------
+
+      // this 1-1 (strict mode)
+      // In strict mode, 'this' in normal function is 'undefined'
+
+      function func2() {
+        console.log(this); // in strict mode -> undefined
+      }
+
+      func2();
+
+      // ------------------------------------------------------------------------
+
+      // this 2 (object)
+      // In a function (method) within an object, this means an object that has that function
+      let obj1 = {
+        data1: 'oilpainting',
+        func1: function () {
+          console.log(this); // obj1 ({data1: 'oilpainting', func1: ƒ})
+        },
+      };
+      obj1.func1();
+
+      // function in object in object in ...
+      var obj2 = {
+        data2: {
+          func2: function () {
+            console.log(this); // data ({func2: ƒ})
+          },
+        },
+      };
+      obj2.data2.func2();
+
+      // arrow function
+      // The 'arrow function' uses the value of 'this' as it is outside the function
+      var obj3 = {
+        data3: {
+          func3: () => {
+            console.log(this); // window
+          },
+        },
+      };
+      obj3.data3.func3();
+
+      var obj4 = {
+        data4: {
+          func4() {
+            console.log(this); // data4 ({func4: ƒ})
+          },
+        },
+      };
+      obj4.data4.func4();
+
+      // ------------------------------------------------------------------------
+
+      // window
+      // If you create a function or variable in a global space, keep it in {window}
+      // window == global object
+
+      // ------------------------------------------------------------------------
+
+      // this 3 (constructor)
+      function machine() {
+        this.name = 'oilpainting'; // Here, 'this' means object to be newly created from 'machine'
+      }
+
+      // Object extraction
+      var exObj = new machine();
+      console.log(exObj);
+
+      // ------------------------------------------------------------------------
+
+      // this 4 (eventlistener)
+      document.querySelector('.btn').addEventListener('click', function (e) {
+        console.log(this); // == e.currentTarget;
+        console.log(e.currentTarget); // == this;
+
+        var arr = [1, 2, 3];
+        arr.forEach(function (a) {
+          // callback function
+          console.log(a); // 1 2 3
+          console.log(this); // window
+        });
+      });
+
+      console.clear();
+      let obj5 = {
+        names: ['kim', 'shin', 'son'],
+        func5: function () {
+          console.log(this); // obj5 ({names: Array(3), func5: ƒ})
+          obj5.names.forEach(function () {
+            console.log(this); // window
+          });
+        },
+      };
+
+      obj5.func5();
+
+      // arrow function?
+      console.clear();
+      let obj6 = {
+        names: ['kim', 'shin', 'son'],
+        func6: function () {
+          console.log(this); // obj6 ({names: Array(3), func6: ƒ})
+          obj6.names.forEach(() => {
+            // arrow function -> Use the external value without changing this value inside
+            console.log(this); // obj6 ({names: Array(3), func6: ƒ})
+          });
+        },
+      };
+
+      obj6.func6();
+    </script>
+  </body>
+</html>
