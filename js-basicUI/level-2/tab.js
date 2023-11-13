@@ -5,13 +5,18 @@ let tabCont = document.querySelectorAll('.tab-content');
 // for
 for (let i = 0; i < tabBtn.length; i++) {
   tabBtn[i].addEventListener('click', () => {
-    for (let j = 0; j < tabBtn.length; j++) {
-      tabBtn[j].classList.remove('orange');
-      tabCont[j].classList.remove('show');
-    }
-    tabBtn[i].classList.add('orange');
-    tabCont[i].classList.add('show');
+    tab(i);
   });
+}
+
+// for
+function tab(num) {
+  for (let j = 0; j < tabBtn.length; j++) {
+    tabBtn[j].classList.remove('orange');
+    tabCont[j].classList.remove('show');
+  }
+  tabBtn[num].classList.add('orange');
+  tabCont[num].classList.add('show');
 }
 
 // for each
