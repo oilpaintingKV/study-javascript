@@ -11,69 +11,35 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <style>
-      ul.list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        border-bottom: 1px solid #ccc;
-      }
-      ul.list::after {
-        content: '';
-        display: block;
-        clear: both;
-      }
-      .tab-button {
-        display: block;
-        padding: 10px 20px 10px 20px;
-        float: left;
-        margin-right: -1px;
-        margin-bottom: -1px;
-        color: grey;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .orange {
-        border-top: 2px solid orange;
-        border-right: 1px solid #ccc;
-        border-bottom: 1px solid white;
-        border-left: 1px solid #ccc;
-        color: black;
-        margin-top: -2px;
-      }
-      .tab-content {
-        display: none;
-        padding: 10px;
-      }
-      .show {
-        display: block;
-      }
-    </style>
   </head>
   <body>
-    <div class="container mt-3">
-      <div class="card p-3">
-        <span class="car-title">K5</span>
-        <span class="car-price">price</span>
+    <div class="card-group container">
+      <div class="card">
+        <img src="https://via.placeholder.com/600" />
+        <div class="card-body">
+          <h5 class="card-tit">Card title</h5>
+          <p class="card-price">price : 70000</p>
+          <button class="btn btn-danger">buy</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600" />
+        <div class="card-body">
+          <h5 class="card-tit">Card title</h5>
+          <p class="card-price">price : 70000</p>
+          <button class="btn btn-danger">buy</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600" />
+        <div class="card-body">
+          <h5 class="card-tit">Card title</h5>
+          <p class="card-price">price : 70000</p>
+          <button class="btn btn-danger">buy</button>
+        </div>
       </div>
     </div>
 
-    <div class="container mt-5">
-      <ul class="list">
-        <li class="tab-button" data-id="0">Products</li>
-        <li class="tab-button orange" data-id="1">Information</li>
-        <li class="tab-button" data-id="2">Shipping</li>
-      </ul>
-      <div class="tab-content">
-        <p>Product</p>
-      </div>
-      <div class="tab-content show">
-        <p>Information</p>
-      </div>
-      <div class="tab-content">
-        <p>Shipping</p>
-      </div>
-    </div>
     <script src="js.js"></script>
 
     <script

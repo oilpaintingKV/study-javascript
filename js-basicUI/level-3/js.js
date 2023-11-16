@@ -1,10 +1,13 @@
-// car
-let car2 = { name: 'k5', price: [50000, 3000, 4000] }; // key : value
-let price = document.querySelector('.price');
+const products = [
+  { id: 0, price: 70000, title: 'Blossom Dress' },
+  { id: 1, price: 50000, title: 'Springfield Shirt' },
+  { id: 2, price: 60000, title: 'Black Monastery' },
+];
 
-price.innerText = `price : ${car2.price[0]}`; // data binding (Put data into html)
+const cardTitle = document.querySelectorAll('.card-tit');
+const cardPrice = document.querySelectorAll('.card-price');
 
-// tab
-let tabList = document.querySelector('.list');
-let tabBtn = document.querySelectorAll('.tab-button');
-let tabCont = document.querySelectorAll('.tab-content');
+for (let i = 0; i < products.length; i++) {
+  cardTitle[i].innerText = products[i].title;
+  cardPrice[i].innerText = products[i].price;
+}
