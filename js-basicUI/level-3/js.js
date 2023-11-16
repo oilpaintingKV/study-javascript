@@ -11,3 +11,17 @@ for (let i = 0; i < products.length; i++) {
   cardTitle[i].innerText = products[i].title;
   cardPrice[i].innerText = products[i].price;
 }
+
+// select
+const selectProduct = document.querySelector('.select_prod');
+const selectSize = document.querySelector('.select_size');
+
+selectProduct.addEventListener('input', (e) => {
+  const value = e.currentTarget.value;
+
+  if (value === 'nice shirt') {
+    selectSize.classList.add('show');
+  } else {
+    selectSize.classList.remove('show');
+  }
+});
