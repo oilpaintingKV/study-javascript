@@ -15,6 +15,8 @@ for (let i = 0; i < products.length; i++) {
 // select
 const selectProduct = document.querySelector('.select_prod');
 const selectSize = document.querySelector('.select_size');
+const shirt = [95, 100, 105, 110];
+const pants = [28, 30, 32, 34];
 
 selectProduct.addEventListener('input', (e) => {
   const value = e.currentTarget.value;
@@ -25,34 +27,30 @@ selectProduct.addEventListener('input', (e) => {
 
     selectSize.innerHTML = '';
 
-    let shirtOption = ` <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>`;
-    selectSize.insertAdjacentHTML('beforeend', shirtOption);
+    shirt.forEach(function (item, idx) {
+      selectSize.insertAdjacentHTML(
+        'beforeend',
+        `<option>${idx + 1} : ${item}</option`
+      );
+    });
   } else if (value == 'nice pants') {
     selectSize.classList.add('show');
 
     selectSize.innerHTML = '';
 
-    // 1. create Element
-    let optionTag = document.createElement('option');
-    optionTag.innerHTML = '28';
-    selectSize.appendChild(optionTag);
-
-    // 2. insertAdjacentHTML
-    let size30 = '<option>30</option>';
-    selectSize.insertAdjacentHTML('beforeend', size30);
+    pants.forEach(function (item, idx) {
+      selectSize.insertAdjacentHTML(
+        'beforeend',
+        `<option>${idx + 1} : ${item}</option`
+      );
+    });
   } else {
     selectSize.classList.remove('show');
   }
+
+  let obj = { name: 'kim', age: 20 };
+
+  for (let key in obj) {
+    console.log(obj[key]);
+  }
 });
-
-// create html - createElement (more faster)
-let a = document.createElement('p');
-a.innerHTML = 'hello';
-document.querySelector('#test').appendChild(a);
-
-// create html - insertAdjacentHTML
-let template = '<p>hi~</p>';
-document.querySelector('#test').insertAdjacentHTML('beforeend', template);
