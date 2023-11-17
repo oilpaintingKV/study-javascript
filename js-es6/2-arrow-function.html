@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn">버튼</button>
+  </body>
+  <script>
+    // function
+    // 1. Use when you want to bind the codes into a function
+    // 2. Use when you want to build an I/O machine
+    // 3. Can be omitted in brackets ({}) in one line of code
+    // 4. Round brackets (()) can be omitted even when there is one parameter.
+
+    let func = (a) => {
+      return a + 10;
+    };
+
+    func();
+
+    // arrow function examples
+    // 1. forEach callback function
+    [1, 2, 3, 4].forEach((a) => console.log(a));
+
+    // 2. eventlistener
+    document.querySelector('.btn').addEventListener('click', (e) => {
+      console.log(this);
+    });
+
+    // 3. function in object
+    let obj = {
+      func: () => {
+        console.log(this);
+      },
+    };
+    obj.func();
+  </script>
+</html>

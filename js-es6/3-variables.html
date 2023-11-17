@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // declaration, assignment, scope, hoisting
+      // 1. var
+      // re-declaration O, re-assignment O, scope function
+      console.log(name1); // hoisting (undefined)
+
+      var name1 = 'kim';
+      var name1;
+
+      // 1-1. scope (only function)
+      function park() {
+        var car = 'k8';
+      }
+      // console.log(car); // car is not defined
+
+      // 2. let
+      // re-declaration X, re-assignment O, scope {}
+      let age1 = 30;
+
+      // 3. const
+      // re-declaration X, re-assignment X, scope {}
+      const country = 'rok';
+
+      // 3-1. const object
+      const people = { name2: 'kim' };
+      people.name2 = 'son';
+      console.log(people.name2);
+
+      Object.freeze(people); // Make it unmodifiable
+
+      // Hoisting?
+      // a phenomenon that drags the declaration of a variable to the top
+      console.log(name1); // var name1 (top)
+
+      // Create multiple variables at the same time
+      // var a1 = 1, a2 = 2;
+
+      // Global Variables
+      // Variables that can be used everywhere
+      var age2 = 20;
+      function func2() {
+        console.log(age2);
+      }
+
+      func2();
+
+      // Create Global Variables with Windows
+      window.age3 = 27; // It is better to add a window to the global variable
+
+      console.log(age3);
+      console.log(window.age3);
+
+      // +) The function declaration also has a hoisting phenomenon.
+
+      // quiz
+      if (true) {
+        let a = 1;
+        var b = 2;
+        if (true) {
+          let b = 3;
+        }
+        console.log(b);
+      }
+    </script>
+  </body>
+</html>
