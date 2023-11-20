@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Benefits of template literals
+      // 1. be able to change the line
+      // 2. It's easy to put a variable in the middle
+      var variable = `sonny`;
+      var text = `hello! ${variable} here~`;
+      var template = `<div>nice one ${variable}</div>`;
+      console.log(text);
+
+      // Tagged literals
+      // to be able to deconstruct and analyze characters
+      // Change the word order,
+      // Remove the word,
+      // Move the position of the ${변수}
+      function func1() {
+        return 10;
+      }
+      console.log(func1`hello! ${variable} here`);
+
+      // Break it up
+      function breaker(word, variable, variable2) {
+        console.log(word);
+        console.log(variable);
+        console.log(variable2);
+      }
+
+      breaker`hello! ${variable} here~ ${variable}`;
+
+      // function
+      // 1. It makes the characters into array
+      // 2. The second parameter means ${variable}
+
+      // Use Examples
+      // When you want to change the order of the letters
+      function breaker2(word, variable) {
+        console.log(word[1] + variable + word[0]);
+      }
+
+      breaker2`hello!! ${variable} HERE!! ${variable}`; // 입니다 sonny 안녕하세요 sonny
+    </script>
+  </body>
+</html>

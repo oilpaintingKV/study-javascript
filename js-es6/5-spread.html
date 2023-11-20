@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // spread operator (...)
+      // 1. If you attach it to the array, remove brackets
+      var array1 = ['hello', 'world'];
+      console.log(...array1);
+
+      // 2. If you put it on the text, I'll spread it out
+      var text = 'hello';
+      console.log(...text);
+      // console.log('h', 'e', 'l', 'l', 'o');
+
+      // where do i use this
+      // 1. array combination / deep copy
+      var a1 = [1, 2, 3];
+      var b1 = [4, 5];
+
+      var c1 = [...a1, ...b1];
+      console.log(c1);
+
+      // deep copy
+      var a = [1, 2, 3];
+      var b = [...a];
+
+      a[3] = 4;
+
+      console.log(a);
+      console.log(b);
+
+      // array, object -> reference data type
+
+      // 2. object combination / deep copy
+      var o1 = { a: 1, b: 2 };
+      var o2 = { ...o1, c: 3 };
+
+      console.log(o2);
+
+      // deep copy
+      var o3 = { a: 1, b: 2 };
+      var o4 = { a: 2, ...o3 }; // What if there is a duplicate value in the copy process? Apply the last one
+      var o4 = { ...o3, a: 2 }; // Apply the last one
+
+      console.log(o3);
+      console.log(o4);
+
+      // ...o1 -> error (Only available in brackets or brackets)
+    </script>
+  </body>
+</html>

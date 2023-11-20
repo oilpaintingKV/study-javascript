@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>variable 퀴즈</title>
+  </head>
+  <body>
+    <div class="modal" style="display: none">모달창 0</div>
+    <div class="modal" style="display: none">모달창 1</div>
+    <div class="modal" style="display: none">모달창 2</div>
+
+    <button class="btn">버튼0</button>
+    <button class="btn">버튼1</button>
+    <button class="btn">버튼2</button>
+
+    <script>
+      // Q1 ~ Q4 다음 코드의 콘솔창 출력 결과는 무엇일까요?
+      // Q1 - A.
+      // 함수1(); // Cannot access '안녕' before initialization
+      function 함수1() {
+        console.log(안녕1);
+        let 안녕1 = 'Hello!';
+      }
+
+      // Q2 - A.
+      // 함수 선언 부분만 hoisting 되니까.. 에러
+      // 함수2(); // 함수2 is not a function
+      var 함수2 = function () {
+        console.log(안녕2);
+        var 안녕2 = 'Hello!';
+      };
+
+      // Q3 - A.
+      let a = 1;
+      var 함수3 = function () {
+        a = 2;
+      };
+      console.log(a); // 1
+
+      // Q4 - A.
+      let b = 1; // 더 가까우니까 이거 사용
+      var c = 2;
+      window.b = 3; // global
+      window.c = 4;
+      console.log(b + c); // 5
+
+      // Q5. 콘솔창에 1초에 한번씩 1부터 5까지의 정수를 출력해주고 싶습니다.
+      // 해당 코드를 수정하여 원하는 값이 출력되게 만드세요.
+
+      // 문제
+      for (var i = 1; i < 6; i++) {
+        setTimeout(() => {
+          console.log(i);
+        }, i * 1000);
+      }
+
+      // Q5 - A.
+      // var 로 사용한 변수는 이미 반복문이 다 실행되어서 전역변수처럼 5값인채로 남아있는다...
+      // var -> let 으로 수정 해주면 됨
+      for (let i = 1; i < 6; i++) {
+        setTimeout(() => {
+          console.log(i);
+        }, i * 1000);
+      }
+
+      // Q6. 버튼을 누르면 모달창을 띄우고 싶습니다.
+      // button(button)과 모달창(div) 3개가 있습니다.
+      // 각 버튼을 누르면 해당 모달창이 뜨게 코드를 작성하세요.
+      var button = document.querySelectorAll('.btn');
+      var modal = document.querySelectorAll('.modal');
+
+      for (let i = 0; i < 3; i++) {
+        button[i].addEventListener('click', function () {
+          modal[i].style.display = 'block';
+        });
+      }
+    </script>
+  </body>
+</html>
