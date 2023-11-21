@@ -29,6 +29,7 @@
           <p class="card-price">price : 70000</p>
         </div> -->
       </div>
+      <button class="btn btn-danger">더보기</button>
     </div>
 
     <script>
@@ -48,9 +49,32 @@
           <img src="https://via.placeholder.com/600" class="w-100" />
           <h5 class="card-tit">${item.title}</h5>
           <p class="card-price">${item.price}</p>
-        </div>`
+          </div>`
         );
       });
+
+      // get
+      document
+        .querySelector('.btn-danger')
+        .addEventListener('click', function () {
+          fetch('https://codingapple1.github.io/js/more1.json')
+            .then((res) => res.json())
+            .then((data) => {
+              data.forEach((item) => {
+                cardBox.insertAdjacentHTML(
+                  'beforeend',
+                  `<div class="col-sm-4">
+                  <img src="https://via.placeholder.com/600" class="w-100" />
+                  <h5 class="card-tit">${item.title}</h5>
+                  <p class="card-price">${item.price}</p>
+                  </div>`
+                );
+              });
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
     </script>
 
     <script
