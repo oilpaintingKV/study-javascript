@@ -21,30 +21,13 @@
     </style>
   </head>
   <body>
-    <div class="card-group container">
-      <div class="card">
-        <img src="https://via.placeholder.com/600" />
-        <div class="card-body">
-          <h5 class="card-tit">Card title</h5>
+    <div class="container">
+      <div class="row card-box">
+        <!-- <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5 class="card-tit">card title</h5>
           <p class="card-price">price : 70000</p>
-          <button class="btn btn-danger">buy</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/600" />
-        <div class="card-body">
-          <h5 class="card-tit">Card title</h5>
-          <p class="card-price">price : 70000</p>
-          <button class="btn btn-danger">buy</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/600" />
-        <div class="card-body">
-          <h5 class="card-tit">Card title</h5>
-          <p class="card-price">price : 70000</p>
-          <button class="btn btn-danger">buy</button>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -56,32 +39,18 @@
         { id: 2, price: 60000, title: 'Black Monastery' },
       ];
 
-      const cardTitle = document.querySelectorAll('.card-tit');
-      const cardPrice = document.querySelectorAll('.card-price');
+      const cardBox = document.querySelector('.card-box');
 
-      for (let i = 0; i < products.length; i++) {
-        cardTitle[i].innerText = products[i].title;
-        cardPrice[i].innerText = products[i].price;
-      }
-
-      // ajax - javscript
-      fetch('https://codingapple1.github.io/price.json')
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-      // ajax - jQuery
-      // $.get('https://codingapple1.github.io/price.json')
-      //   .done(function (data) {
-      //     console.log(data.price);
-      //   })
-      //   .fail(function () {
-      //     console.log('fail...');
-      //   });
+      products.forEach((item) => {
+        cardBox.insertAdjacentHTML(
+          'beforeend',
+          `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5 class="card-tit">${item.title}</h5>
+          <p class="card-price">${item.price}</p>
+        </div>`
+        );
+      });
     </script>
 
     <script
