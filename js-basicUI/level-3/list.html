@@ -29,7 +29,14 @@
           <p class="card-price">price : 70000</p>
         </div> -->
       </div>
-      <button class="btn btn-danger">더보기</button>
+      <button class="btn btn-light">price order</button>
+      <button class="btn btn-success">title order (C - B - A)</button>
+      <button class="btn btn-info">title order (A - B - C)</button>
+      <button class="btn btn-dark">view only under 60000</button>
+      <button class="btn btn-danger">more</button>
+      <button class="btn btn-link">back</button>
+
+      <input type="text" class="inp_price" />
     </div>
 
     <script>
@@ -40,6 +47,9 @@
         { id: 2, price: 60000, title: 'Black Monastery' },
       ];
 
+      const productsCopy = [...products];
+      console.log(productsCopy);
+
       // card box
       const cardBox = document.querySelector('.card-box');
 
@@ -49,13 +59,74 @@
           cardBox.insertAdjacentHTML(
             'beforeend',
             `<div class="col-sm-4">
-          <img src="https://via.placeholder.com/600" class="w-100" />
-          <h5 class="card-tit">${item.title}</h5>
-          <p class="card-price">${item.price}</p>
-          </div>`
+            <img src="https://via.placeholder.com/600" class="w-100" />
+            <h5 class="card-tit">${item.title}</h5>
+            <p class="card-price">${item.price}</p>
+            </div>`
           );
         });
       }
+
+      // sort - price
+      document.querySelector('.btn-light').addEventListener('click', () => {
+        cardBox.innerHTML = '';
+        products.sort((a, b) => {
+          return a.price - b.price;
+        });
+
+        handleText(products);
+      });
+
+      // sort - title (C -> B -> A)
+      document.querySelector('.btn-success').addEventListener('click', () => {
+        cardBox.innerHTML = '';
+        products.sort((a, b) => {
+          if (a.title < b.title) return 1;
+          if (a.title > b.title) return -1;
+          if (a.title === b.title) return 0;
+        });
+
+        handleText(products);
+      });
+
+      // filter - View only products under 60,000
+      document.querySelector('.btn-dark').addEventListener('click', () => {
+        cardBox.innerHTML = '';
+
+        let newProducts = products.filter((a) => {
+          return a.price <= 60000;
+        });
+        handleText(newProducts);
+      });
+
+      // sort - title (A -> B -> C)
+      document.querySelector('.btn-info').addEventListener('click', () => {
+        cardBox.innerHTML = '';
+        products.sort((a, b) => {
+          if (a.title > b.title) return 1;
+          if (a.title < b.title) return -1;
+          if (a.title === b.title) return 0;
+        });
+
+        handleText(products);
+      });
+
+      // input filter
+      document.querySelector('.inp_price').addEventListener('input', (e) => {
+        cardBox.innerHTML = '';
+
+        const value = e.currentTarget.value;
+        let newProducts = products.filter((a) => {
+          return a.price <= value;
+        });
+        handleText(newProducts);
+      });
+
+      // back
+      document.querySelector('.btn-link').addEventListener('click', () => {
+        cardBox.innerHTML = '';
+        handleText(productsCopy);
+      });
 
       // 1. Use products
       handleText(products);
@@ -124,6 +195,35 @@
       //         console.log(error);
       //       });
       //   });
+
+      // array
+      // sort
+      // The original is transformed
+      let arr1 = [2, 3, 7, 10, 30, 6];
+      arr1.sort((a, b) => {
+        return a - b;
+      });
+
+      console.log(arr1);
+
+      // filter
+      // The original is not transformed
+      let arr2 = [7, 3, 5, 2, 40];
+
+      let newArr = arr2.filter((a) => {
+        return a < 4;
+      });
+
+      console.log(newArr);
+
+      // map
+      // Use when you want to change all the arrays
+      let arr3 = [7, 3, 5, 2, 40];
+      let newArr2 = arr3.map((a) => {
+        return a * 4;
+      });
+
+      console.log(newArr2);
     </script>
 
     <script
