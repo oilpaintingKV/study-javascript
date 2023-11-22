@@ -18,6 +18,9 @@
       .select_size.show {
         display: block;
       }
+      .btn_list {
+        margin-top: 30px;
+      }
     </style>
   </head>
   <body>
@@ -29,12 +32,14 @@
           <p class="card-price">price : 70000</p>
         </div> -->
       </div>
-      <button class="btn btn-light">price order</button>
-      <button class="btn btn-success">title order (C - B - A)</button>
-      <button class="btn btn-info">title order (A - B - C)</button>
-      <button class="btn btn-dark">view only under 60000</button>
-      <button class="btn btn-danger">more</button>
-      <button class="btn btn-link">back</button>
+      <div class="btn_list">
+        <button class="btn btn-light">price order</button>
+        <button class="btn btn-success">title order (C - B - A)</button>
+        <button class="btn btn-info">title order (A - B - C)</button>
+        <button class="btn btn-dark">view only under 60000</button>
+        <button class="btn btn-danger">more</button>
+        <button class="btn btn-link">back</button>
+      </div>
 
       <input type="text" class="inp_price" />
     </div>
@@ -62,6 +67,7 @@
             <img src="https://via.placeholder.com/600" class="w-100" />
             <h5 class="card-tit">${item.title}</h5>
             <p class="card-price">${item.price}</p>
+            <button class="btn-buy">buy NOW!</button>
             </div>`
           );
         });
@@ -224,6 +230,79 @@
       });
 
       console.log(newArr2);
+    </script>
+
+    <script>
+      // localStorage / sessionStorage
+      // save
+      localStorage.setItem('name', 'value');
+
+      // print
+      localStorage.getItem('name');
+
+      // remove
+      localStorage.removeItem('name');
+
+      // array, object?
+      // You can save it by changing it to json
+      var arr = [1, 2, 3];
+
+      var jsonArr = JSON.stringify(arr);
+      localStorage.setItem('num', jsonArr);
+
+      var print = localStorage.getItem('num');
+      console.log(JSON.parse(print));
+
+      // modify
+      // 1. print
+      // 2. modify
+      // 3. re save
+
+      // buy button function
+      let btnBuy = document.querySelectorAll('.btn-buy');
+      let buyArr = [];
+
+      btnBuy.forEach((item) => {
+        item.addEventListener('click', function () {
+          let name =
+            this.previousElementSibling.previousElementSibling.innerText;
+          if (localStorage.getItem('cart') == null) {
+            buyArr.push(name);
+            localStorage.setItem('cart', JSON.stringify(buyArr));
+          } else {
+            let modArr = JSON.parse(localStorage.getItem('cart'));
+            modArr.push(name);
+            localStorage.setItem('cart', JSON.stringify(modArr));
+          }
+        });
+      });
+
+      // let btnBuy = document.querySelectorAll('.btn-buy')
+      // let buyArr = [];
+      // let count = 1;
+
+      // btnBuy.forEach((item, i) => {
+      //   item.addEventListener('click', function () {
+      //     let name =
+      //       this.previousElementSibling.previousElementSibling.innerText;
+
+      //     if (localStorage.getItem('cart') == null) {
+      //       buyArr.push({ name, count });
+      //       localStorage.setItem('cart', JSON.stringify(buyArr));
+      //     } else {
+      //       let modArr = JSON.parse(localStorage.getItem('cart'));
+      //       modArr.filter((obj) => {
+      //         if (obj.name == name) {
+      //           obj.count += 1;
+      //           localStorage.setItem('cart', JSON.stringify(modArr));
+      //         }
+      //         return;
+      //       });
+      //       modArr.push({ name, count });
+      //       localStorage.setItem('cart', JSON.stringify(modArr));
+      //     }
+      //   });
+      // });
     </script>
 
     <script
